@@ -6,7 +6,25 @@ function loadAnimDict(dict)
 end
 
 
+RegisterCommand("pissleft",function(source, args)
 
+    local ad = "creatures@rottweiler@move"
+	local anim = "pee_left_idle" 
+	local player = PlayerPedId()
+	
+
+	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
+		loadAnimDict( ad )
+		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
+			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
+			
+			ClearPedTask(player)
+		else
+			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
+		end       
+	end
+
+end, false)
 
 RegisterCommand("hump",function(source, args)
 
@@ -29,47 +47,11 @@ RegisterCommand("hump",function(source, args)
 end, false)
 
 
-RegisterCommand("sit",function(source, args)
-
-    local ad = "creatures@retriever@amb@world_dog_sitting@idle_a"
-	local anim = "idle_b" 
-	local player = PlayerPedId()
-	
-
-	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
-		loadAnimDict( ad )
-		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
-			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-			
-			ClearPedTask(player)
-		else
-			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-		end       
-	end
-
-end, false)
 
 
 
-RegisterCommand("bark",function(source, args)
 
-    local ad = "creatures@retriever@amb@world_dog_barking@idle_a"
-	local anim = "idle_a" 
-	local player = PlayerPedId()
-	
 
-	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
-		loadAnimDict( ad )
-		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
-			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-			
-			ClearPedTask(player)
-		else
-			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-		end       
-	end
-
-end, false)
 
 RegisterCommand("shit",function(source, args)
 
@@ -132,25 +114,7 @@ RegisterCommand("pissright",function(source, args)
 
 end, false)
 
-RegisterCommand("pissleft",function(source, args)
 
-    local ad = "creatures@rottweiler@move"
-	local anim = "pee_left_idle" 
-	local player = PlayerPedId()
-	
-
-	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
-		loadAnimDict( ad )
-		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
-			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-			
-			ClearPedTask(player)
-		else
-			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-		end       
-	end
-
-end, false)
 
 RegisterCommand("carsit",function(source, args)
 
@@ -194,27 +158,7 @@ end, false)
 
 
 
---[[ --amb@code_human_wander_eating_donut_fat@male@idle_a
 
-RegisterCommand("test",function(source, args)
-
-    local ad = "amb@code_human_wander_eating_donut_fat@male@idle_a"
-	local anim = "idle_a" 
-	local player = PlayerPedId()
-	
-
-	if ( DoesEntityExist( player ) and not IsEntityDead( player )) then
-		loadAnimDict( ad )
-		if ( IsEntityPlayingAnim( player, ad, anim, 3 ) ) then 
-			TaskPlayAnim( player, ad, "exit", 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-			
-			ClearPedTask(player)
-		else
-			TaskPlayAnim( player, ad, anim, 3.0, 1.0, -1, 01, 0, 0, 0, 0 )
-		end       
-	end
-
-end, false) ]]
 
 Citizen.CreateThread(function()
 local player = PlayerPedId()
